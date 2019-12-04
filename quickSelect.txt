@@ -1,0 +1,120 @@
+Write a function that takes in an array of distinct integers as well as an integer k and returns
+the kth smallest number in that array in linear time, on average. The
+array could be sorted, but isn't necessarily so.
+Sample input: [8, 5, 2, 9, 7, 6, 3], 3
+Sample output: 5
+
+
+function quickSelect(array,k){
+
+}
+
+main(array,k)
+  if(array.length > k) return -1
+  return quickSortHelper(array,k,0,array.length - 1)
+  
+  
+  function quickSortHelper(array,k,lp,rp){
+    if(lp >= rp) return array[lp]
+    let pivot = lp
+    let left = lp + 1
+    let right = rp
+    while(left < right){
+      if(array[left] > array[pivot] && array[right]  <= array[pivot]){
+        swap(left,right,array)
+      }
+      if(array[left] <= array[pivot]){
+        left++
+      }
+      
+      if(array[right] > array[pivot]){
+        right--
+      }
+    }
+    
+    swap(pivot,right,array)
+    if(k - 1 === right){
+      return array[k - 1]
+    }else if((k -1) < right){
+      return quickSortHelper(array,k,lp,right)
+    }else {
+      return quickSortHelper(array,k,right,rp)
+    }
+
+  }
+  
+  
+  function swap(i,j,array) {
+    let temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+  }
+  
+  
+  
+  
+  
+  
+  function quickselect(array, k){
+    return quickselectHelper(array,k,0,array.length - 1)
+  }
+  
+  function quickselectHelper(array,k,lp,rp){
+    if(lp >= rp) return array[lp]
+    let pivot = lp
+    let left = lp + 1
+    let right = rp
+    /// ERROOR --> needs to loop while left <= right
+    while(left <= right){
+        
+        if(array[left] > array[pivot] && array[right] <= array[pivot]){
+          swap(left,right,array)
+        }
+        
+        if(array[left] <= array[pivot]){
+          left++
+        }
+        
+        if(array[right] > array[pivot]){
+          right--
+        }
+    }
+    swap(right,pivot,array)
+    if((k - 1) === right){
+      return array[k - 1]
+    }else if(k - 1 < right){
+      return quickselectHelper(array,k,lp,right - 1)
+    }else {
+      return quickselectHelper(array,k,right + 1, rp)
+    }
+  }
+  
+  
+  function swap(i,j,array){
+    let temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
